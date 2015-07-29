@@ -1,9 +1,6 @@
 
 console.log("##### MyCheez Starting up ##### " +  new Date());
 
-//var express = require('express');
-//var app = express();
-//app.set('port', (process.env.PORT || 5000));
 
 var Firebase = require('firebase');
 var gcm = require('node-gcm');
@@ -29,7 +26,7 @@ ref.limitToLast(1).on("child_added", function(snapshot) {
   		var presenceRef = new Firebase(presenceBaseRefUrl + victimId);
   		presenceRef.once("value", function(data) {
   			var presenceData = data.val();
-  			console.log("Presence object is " + JSON.stringify(presenceData));
+  			//console.log("Presence object is " + JSON.stringify(presenceData));
   			var isVictimOnline = presenceData.isOnline;
   			// if victim is offine send notification
   			if(!isVictimOnline){
@@ -84,6 +81,3 @@ process.on('SIGINT', exitHandler.bind(null, {exit:true}));
 //catches uncaught exceptions
 process.on('uncaughtException', exitHandler.bind(null, {exit:true}));
 
-//app.listen(app.get('port'), function() {
- //     console.log('Node app is running on port', app.get('port'));
-//});
