@@ -1,6 +1,10 @@
 
 console.log("##### MyCheez Starting up ##### " +  new Date());
 
+//var express = require('express');
+//var app = express();
+//app.set('port', (process.env.PORT || 5000));
+
 var Firebase = require('firebase');
 var gcm = require('node-gcm');
 var API_KEY = 'AIzaSyD4QRxJV4ZIvrgq4IFe23wFLrkZYR9rnho';
@@ -79,3 +83,7 @@ process.on('SIGINT', exitHandler.bind(null, {exit:true}));
 
 //catches uncaught exceptions
 process.on('uncaughtException', exitHandler.bind(null, {exit:true}));
+
+//app.listen(app.get('port'), function() {
+ //     console.log('Node app is running on port', app.get('port'));
+//});
