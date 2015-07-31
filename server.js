@@ -5,7 +5,7 @@ console.log("##### MyCheez Starting up ##### " +  new Date());
 var Firebase = require('firebase');
 var gcm = require('node-gcm');
 var API_KEY = 'AIzaSyD4QRxJV4ZIvrgq4IFe23wFLrkZYR9rnho';
-var sender = new gcm.Sender('AIzaSyD4QRxJV4ZIvrgq4IFe23wFLrkZYR9rnho');
+
 
 // Get a reference to history 
 var ref = new Firebase("https://torrid-inferno-8611.firebaseio.com/mycheez/audit_trail");
@@ -41,7 +41,7 @@ ref.limitToLast(1).on("child_added", function(snapshot) {
 
 
 function sendPushNotification(victimDeviceToken, thiefName){
-
+	var sender = new gcm.Sender('AIzaSyD4QRxJV4ZIvrgq4IFe23wFLrkZYR9rnho');
 	var msgString = thiefName + ' just snatched your cheese!'
 	var message = new gcm.Message();
 	message.addData('message', msgString);
