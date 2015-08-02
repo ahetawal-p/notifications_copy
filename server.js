@@ -17,6 +17,7 @@ ref.limitToLast(1).on("child_added", function(snapshot) {
 	// hack to skip the last added node, when the process startsup again
 	if(start == 0){
 		start = 1; 
+    console.log("This is first object skipping...");
 	} else {
   		var audit = snapshot.val();
   		console.log("Audit object is " + JSON.stringify(audit));
