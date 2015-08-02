@@ -27,7 +27,7 @@ ref.limitToLast(1).on("child_added", function(snapshot) {
   		var presenceRef = new Firebase(presenceBaseRefUrl + victimId);
   		presenceRef.once("value", function(data) {
   			var presenceData = data.val();
-  			//console.log("Presence object is " + JSON.stringify(presenceData));
+  			console.log("Presence object is " + JSON.stringify(presenceData));
   			var isVictimOnline = presenceData.isOnline;
   			// if victim is offine send notification
   			if(!isVictimOnline){
