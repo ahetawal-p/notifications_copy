@@ -28,9 +28,8 @@ ref.limitToLast(1).on("child_added", function(snapshot) {
   		presenceRef.once("value", function(data) {
   			var presenceData = data.val();
   			console.log("Presence object is " + JSON.stringify(presenceData));
-  			var isVictimOnline = presenceData.isOnline;
   			// if victim is offine send notification
-  			if(!isVictimOnline){
+  			if(presenceData && !presenceData.isOnline){
   				var victimDeviceToken = presenceData.gcmToken;
   				if(victimDeviceToken)
   					sendPushNotification(victimDeviceToken, thiefName);
